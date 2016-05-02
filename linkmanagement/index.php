@@ -32,12 +32,6 @@ if($username == "admin" && $password == "adminpassword")
 	header("Location: $mainpage");
 	exit();
 }
-else
-{
-	$error == 1;
-	$errormessage = 'Invalid Username or Password';
-}
-
 }
 ?>
 <!DOCTYPE html>
