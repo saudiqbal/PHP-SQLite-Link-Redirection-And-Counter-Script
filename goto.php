@@ -24,7 +24,7 @@ if(empty($row))
 	exit();
 }
 
-$db->exec("UPDATE Links SET Counter = Counter + 1 WHERE rowid = '$page'");
+$db->exec("UPDATE Links SET Counter = Counter + 1 WHERE rowid = '$link'");
 
 header("Location: " . $row['Links']);
 $db = NULL;
