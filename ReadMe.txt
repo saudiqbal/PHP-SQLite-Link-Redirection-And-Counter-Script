@@ -15,3 +15,17 @@ chmod /db folder 777
 chmod /db/LinksRedirect.db or whatever name you choose.
 
 Run setup.php and then delete the file setup.php
+
+To display the count use this code.
+
+<?php
+// Example to show counter from link ID 73, change it to whatever ID counter you want to show.
+$link = "73";
+// Change the below path accordingly.
+include "linkmanagement/config.inc.php";
+$db = new PDO("sqlite:linkmanagement/db/$dbname");
+$result = $db->prepare("SELECT Counter FROM Links WHERE rowid = '$link' LIMIT 1");
+$result->execute();
+$row = $result->fetch();
+echo $row['Counter'];
+?>
