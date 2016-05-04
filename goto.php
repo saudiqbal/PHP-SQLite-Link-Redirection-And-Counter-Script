@@ -3,17 +3,17 @@ include "linkmanagement/config.inc.php";
 
 $db = new PDO("sqlite:linkmanagement/db/$dbname");
 
-if(isset($_GET['page']))
+if(isset($_GET['link']))
 {
-$page = $_GET['page'];
-if(preg_match('/[^0-9]/i', $page))
+$link = $_GET['link'];
+if(preg_match('/[^0-9]/i', $link))
 {
 header("Location: linkerror.php?error=noid");
 exit();
 }
 }
 
-$result = $db->prepare("SELECT rowid, Counter, Links FROM Links WHERE rowid = '$page' LIMIT 1");
+$result = $db->prepare("SELECT rowid, Counter, Links FROM Links WHERE rowid = '$link' LIMIT 1");
 
 $result->execute();
 $row = $result->fetch();

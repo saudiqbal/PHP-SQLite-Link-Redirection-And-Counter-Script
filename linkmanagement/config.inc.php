@@ -5,14 +5,14 @@ session_start();
 $dbname = "LinksRedirect.db";
 
 // Goto.php location
-$goto = "http://www.saudiqbal.com/";
+$goto = "http://www.domain.com/";
 
 // Main Directory
-$linkdir = "http://www.saudiqbal.com/linkmanagement/";
+$linkdir = "http://www.domain.com/linkmanagement/";
 
 // main page
-$mainpage = "http://www.saudiqbal.com/linkmanagement/main.php";
+$mainpage = "http://www.domain.com/linkmanagement/main.php";
 
 // Index page
-$indexpage = "http://www.saudiqbal.com/linkmanagement/index.php"; 
+$indexpage = "http://www.domain.com/linkmanagement/index.php"; 
 ?>

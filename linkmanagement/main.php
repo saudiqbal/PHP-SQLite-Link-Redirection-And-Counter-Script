@@ -235,7 +235,7 @@ foreach($result as $row)
 <li><a href='" . $linkdir . "updateform.php?linkid=" . $row['rowid'] . "'>Edit</a></li>
 <li><a href='" . $linkdir . "delete.php?id=" . $row['rowid'] . "' onclick=\"javascript:return confirm('Delete permanently?')\">Delete</a></li>
 </ul>
-</div><a href='" . $goto . "goto.php?page=" . $row['rowid'] . "' style='text-decoration: none; color:#000000;' target=\"_blank\">" . $row['Links'] . "</a></td>" . "</tr>\n";
+</div><a href='" . $goto . "goto.php?link=" . $row['rowid'] . "' style='text-decoration: none; color:#000000;' target=\"_blank\">" . $row['Links'] . "</a></td>" . "</tr>\n";
 	$i++;
 }
 $db = NULL;
