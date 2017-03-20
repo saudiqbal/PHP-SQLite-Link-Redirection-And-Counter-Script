@@ -93,106 +93,141 @@ background-color:#EAF2D3;
 }
 
 .dropdown {
-    display: block;
-    display: inline-block;
-    margin: 0px 5px;
+				   
+						  
+					
     position: relative;
-}
+ 
 
-/* ===[ For demonstration ]=== */
+								 
 
-.dropdown { margin-top: 0px }
+							 
 
-/* ===[ End demonstration ]=== */
+								 
 
-.dropdown .dropdown_button {
-    cursor: pointer;
-    width: auto;
+							
+					
+				
     display: inline-block;
-    padding: 4px 5px;
-    border: 1px solid #AAA;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    font-weight: bold;
-    color: #717780;
-    line-height: 16px;
-    text-decoration: none !important;
-    background: white;
+					 
+						   
+							   
+							
+					   
+					  
+				   
+					  
+									 
+					  
 }
 
-.dropdown input[type="checkbox"]:checked +  .dropdown_button {
-    border: 1px solid #3B5998;
-    color: white;
-    background: #6D84B4;
-    -moz-border-radius-topleft: 2px;
-    -moz-border-radius-topright: 2px;
-    -moz-border-radius-bottomright: 0px;
-    -moz-border-radius-bottomleft: 0px;
-    -webkit-border-radius: 2px 2px 0px 0px;
-    border-radius: 2px 2px 0px 0px;
-    border-bottom-color: #6D84B4;
-}
+.dropdown .dropdown-menu {
+							  
+				 
+						
+									
+									 
+										
+									   
+										   
+								   
+								 
+ 
 
-.dropdown input[type="checkbox"] + .dropdown_button .arrow {
-    display: inline-block;
-    width: 0px;
-    height: 0px;
-    border-top: 5px solid #6B7FA7;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-}
+															
+						  
+			   
+				
+								  
+										
+									   
+ 
 
-.dropdown input[type="checkbox"]:checked + .dropdown_button .arrow { border-color: white transparent transparent transparent }
+																															  
 
-.dropdown .dropdown_content {
+							 
     position: absolute;
-    border: 1px solid #777;
-    padding: 0px;
-    background: white;
-    margin: 0;
+    top: 100%;
     display: none;
+					  
+    margin: 0;
+    list-style: none; /** Remove list bullets */
+     /** Set the width to 100% of it's parent */
+    padding: 0;
 	z-index: 2;
 }
 
-.dropdown .dropdown_content li {
-    list-style: none;
-    margin-left: 0px;
-    line-height: 16px;
-    border-top: 1px solid #FFF;
-    border-bottom: 1px solid #FFF;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.dropdown .dropdown_content li:hover {
-    border-top-color: #3B5998;
-    border-bottom-color: #3B5998;
-    background: #6D84B4;
-}
-
-.dropdown .dropdown_content li a {
+.dropdown:hover .dropdown-menu {
     display: block;
-    padding: 2px 7px;
-    padding-right: 15px;
-    color: black;
-    text-decoration: none !important;
-    white-space: nowrap;
+					 
+					  
+							   
+								  
+					
+					   
 }
 
-.dropdown .dropdown_content li:hover a {
-    color: white;
-    text-decoration: none !important;
+/** Button Styles **/
+.dropdown button {
+    background-color: Transparent;
+    color: #FFFFFF;
+    border: none;
+    margin: 0;
+    padding: 0em 0.2em;
+    font-size: 1em;
+	z-index: -1;
 }
 
-.dropdown input[type="checkbox"]:checked ~ .dropdown_content { display: block }
+/** List Item Styles **/
+.dropdown a {
+    display: block;
+    padding: 0.2em 0.8em;
+    text-decoration: none;
+    background: #CCCCCC;
+    color: #333333;
+	width: 150%;
+}
 
-.dropdown input[type="checkbox"] { display: none }
+/** List Item Hover Styles **/
+.dropdown a:hover {
+    background: #BBBBBB;
+	width: 150%;
+	z-index: 2;
+}
+#dropdownicon { 
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAADeAAAA3gHd6oNqAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAAlQTFRF////AAAAAAAAflGpXQAAAAJ0Uk5TAICbK04YAAAALklEQVQIHW3BMQEAIAwDsPAgYmqmBzWI4KEqMUDCx0quSo6ZbCNp1kUdzI3Rfh7ocQqhSrAE5gAAAABJRU5ErkJggg==);
+height: 16px;
+width: 16px;
+background-repeat: no-repeat;
+}
+
+.divider {
+display: inline-block;
+height: 50px;
+}
+#alignleft {
+float: left;
+}
+#alignright {
+float: right;
+}
 </style>
 </head>
 <body>
-<h1>Links Manager</h1>
-<h4><a href="form.php">Add a link</a> / <a href="logoff.php">Log out</a></h4>
+<div class="divider">
+<div id="alignleft"><span style="font-size:xx-large;">Links Manager</span></div>
+<div id="alignright">
+<span class="dropdown">
+<button><div id="dropdownicon" title="Dropdownicon" style="margin-top: 10px; margin-left: 20px;"></div></button>
+<ul class="dropdown-menu">
+<li><a href="form.php">Add a link</a></li>
+<li><a href="logoff.php">Log out</a></li>
+</ul>
+</span>
+</div>
+</div>
+
+
 <table id="customers">
 <thead><tr>
 <th align='left'>Link ID</th>
@@ -228,10 +263,10 @@ foreach($result as $row)
     $rowColor = "";
 	else # An even row 
     $rowColor = "class='alt'";
-	echo "<tr $rowColor>" . "<td width='70'>" . stripslashes($row['rowid']) . "</td>" . "<td width='100'>" . stripslashes($row['Counter']) . "</td>" . "<td><div class=\"dropdown\" id=\"dropdown\">
-<input type=\"checkbox\" id=\"drop" . $row['rowid'] . "\" />
-<label for=\"drop" . $row['rowid'] . "\" class=\"dropdown_button\"><span class=\"arrow\"></span></label>
-<ul class=\"dropdown_content\">
+	echo "<tr $rowColor>" . "<td width='70'>" . stripslashes($row['rowid']) . "</td>" . "<td width='100'>" . stripslashes($row['Counter']) . "</td>" . "<td><div class=\"dropdown\">
+<button><div id=\"dropdownicon\" title=\"Dropdownicon\" style=\"margin-right: 5px;\">&nbsp;&nbsp;&nbsp;</div></button>
+																										
+<ul class=\"dropdown-menu\">
 <li><a href='" . $linkdir . "updateform.php?linkid=" . $row['rowid'] . "'>Edit</a></li>
 <li><a href='" . $linkdir . "delete.php?id=" . $row['rowid'] . "' onclick=\"javascript:return confirm('Delete permanently?')\">Delete</a></li>
 </ul>
