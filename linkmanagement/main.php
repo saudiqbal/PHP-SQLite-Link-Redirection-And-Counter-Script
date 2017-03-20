@@ -93,63 +93,14 @@ background-color:#EAF2D3;
 }
 
 .dropdown {
-				   
-						  
-					
     position: relative;
- 
-
-								 
-
-							 
-
-								 
-
-							
-					
-				
     display: inline-block;
-					 
-						   
-							   
-							
-					   
-					  
-				   
-					  
-									 
-					  
 }
 
 .dropdown .dropdown-menu {
-							  
-				 
-						
-									
-									 
-										
-									   
-										   
-								   
-								 
- 
-
-															
-						  
-			   
-				
-								  
-										
-									   
- 
-
-																															  
-
-							 
     position: absolute;
     top: 100%;
     display: none;
-					  
     margin: 0;
     list-style: none; /** Remove list bullets */
      /** Set the width to 100% of it's parent */
@@ -159,12 +110,6 @@ background-color:#EAF2D3;
 
 .dropdown:hover .dropdown-menu {
     display: block;
-					 
-					  
-							   
-								  
-					
-					   
 }
 
 /** Button Styles **/
@@ -265,7 +210,6 @@ foreach($result as $row)
     $rowColor = "class='alt'";
 	echo "<tr $rowColor>" . "<td width='70'>" . stripslashes($row['rowid']) . "</td>" . "<td width='100'>" . stripslashes($row['Counter']) . "</td>" . "<td><div class=\"dropdown\">
 <button><div id=\"dropdownicon\" title=\"Dropdownicon\" style=\"margin-right: 5px;\">&nbsp;&nbsp;&nbsp;</div></button>
-																										
 <ul class=\"dropdown-menu\">
 <li><a href='" . $linkdir . "updateform.php?linkid=" . $row['rowid'] . "'>Edit</a></li>
 <li><a href='" . $linkdir . "delete.php?id=" . $row['rowid'] . "' onclick=\"javascript:return confirm('Delete permanently?')\">Delete</a></li>
